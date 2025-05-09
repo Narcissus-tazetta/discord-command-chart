@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Discordコマンド一覧</title>
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet" />
+        <style>
+            :root {
+                --primary-color: #5865f2;
+                --background-color: #2c2f33;
+                --card-background: #36393f;
+                --text-color: #dcddde;
+                --border-color: #4f545c;
+                --code-bg: #202225;
+            }
+
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            body {
+                font-family: "Noto Sans JP", sans-serif;
+                background-color: var(--background-color);
+                color: var(--text-color);
+                line-height: 1.6;
+                padding: 2rem;
+            }
+
+            .container {
+                max-width: 1200px;
+                margin: 0 auto;
+            }
+
+            .header {
+                text-align: center;
+                margin-bottom: 2rem;
+                padding: 1.5rem;
+                background: linear-gradient(135deg, var(--primary-color), #7289da);
+                border-radius: 10px;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            }
+
+            .header h1 {
+                font-size: 2.5rem;
+                color: white;
+                margin-bottom: 0.5rem;
+            }
+
+            .header p {
+                font-size: 1.1rem;
+                color: #dcddde;
+            }
+
+            hr.line {
+                height: 4px;
+                background: linear-gradient(to right, var(--primary-color), transparent);
+                border: none;
+                margin: 2rem 0;
+            }
+
+            h2 {
+                color: white;
+                font-size: 1.8rem;
+                margin: 1.5rem 0 1rem;
+                position: relative;
+                padding-left: 15px;
+            }
+
+            h2::before {
+                content: "";
+                position: absolute;
+                left: 0;
+                top: 0;
+                height: 100%;
+                width: 5px;
+                background: var(--primary-color);
+                border-radius: 3px;
+            }
+
+            h3 {
+                color: white;
+                font-size: 1.4rem;
+                margin: 1.5rem 0 1rem;
+                position: relative;
+                padding-left: 15px;
+            }
+
+            h3::before {
+                content: "";
+                position: absolute;
+                left: 0;
+                top: 0;
+                height: 100%;
+                width: 5px;
+                background: var(--primary-color);
+                border-radius: 3px;
+            }
+
+            .fix {
+                display: flex;
+                align-items: flex-start;
+                background: var(--card-background);
+                padding: 1.5rem;
+                border-radius: 8px;
+                margin: 1rem 0;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+                transition: transform 0.2s;
+            }
+
+            .fix:hover {
+                transform: translateY(-3px);
+            }
+
+            .fix p {
+                flex: 1;
+                font-size: 1rem;
+            }
+
+            .item {
+                text-align: center;
+                width: 120px;
+                padding: 0.4rem;
+                border: 2px solid var(--border-color);
+                border-radius: 8px;
+                margin-left: 2rem;
+                background: var(--code-bg);
+                cursor: pointer;
+                transition: all 0.3s;
+            }
+
+            .item:hover {
+                border-color: var(--primary-color);
+                transform: scale(1.05);
+            }
+
+            .spoiler {
+                color: transparent;
+                background-color: var(--border-color);
+            }
+
+            .line-high {
+                line-height: 0.5em;
+                margin: 0.5rem 0;
+            }
+
+            .inlinecode {
+                padding: 0.5rem;
+                border: 1px solid var(--border-color);
+                border-radius: 6px;
+                background-color: var(--code-bg);
+                color: var(--text-color);
+                display: inline-block;
+            }
+
+            .codeblock {
+                padding: 1rem;
+                border: 1px solid var(--border-color);
+                border-radius: 6px;
+                background-color: var(--code-bg);
+                color: var(--text-color);
+                width: 100%;
+                max-width: 600px;
+                margin-left: 2rem;
+                font-family: "Courier New", monospace;
+            }
+
+            .pink {
+                color: #f2a19e;
+            }
+
+            .blue {
+                color: #a0c7f4;
+            }
+
+            .quote {
+                border-left: 4px solid var(--border-color);
+                padding-left: 1rem;
+                margin: 1rem 0;
+                background: rgba(255, 255, 255, 0.05);
+                padding: 1rem;
+                border-radius: 4px;
+            }
+
+            a {
+                color: var(--primary-color);
+                text-decoration: none;
+                transition: color 0.2s;
+            }
+
+            a:hover {
+                color: #7289da;
+                text-decoration: underline;
+            }
+
+            ul {
+                margin-left: 2rem;
+                list-style: disc;
+            }
+
+            @media (max-width: 768px) {
+                .fix {
+                    flex-direction: column;
+                    gap: 1rem;
+                }
+
+                .item,
+                .codeblock {
+                    margin-left: 0;
+                    width: 100%;
+                }
+
+                .header h1 {
+                    font-size: 1.8rem;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="header">
+                <h1>Discordのコマンド一覧</h1>
+                <p>右側に表示例</p>
+            </div>
+            <hr class="line" />
+            <h3>1.スポイラー(ネタバレ防止)</h3>
+            <div class="fix">
+                <p>
+                    || spoiler || このように文字を"||"で囲むとスポイラーになり、クリックすると表示されるようになります
+                </p>
+                <div class="item">spoiler</div>
+            </div>
+            <p class="line-high">さらに文字の前に、/spoiler と入力してもスポイラーになります</p>
+            <h3>2.見出し</h3>
+            <div class="fix">
+                <p># h1 このように文字の前に"#"を入力すると、大きくなります</p>
+                <h1 style="margin-left: 2rem">h1</h1>
+            </div>
+            <div class="fix">
+                <p>## h2 ### h3 大きさは３段階あり、"#"を多くすればするほど小さくなります</p>
+                <div>
+                    <h2 style="margin-left: 2rem">h2</h2>
+                    <h3 style="margin-left: 2rem">h3</h3>
+                </div>
+            </div>
+            <h3>3.斜体</h3>
+            <div class="fix">
+                <p>_(oblique)_ このように文字を" _ "もしくは" * "で囲むと、斜体になります</p>
+                <p style="font-style: oblique; margin-left: 2rem">oblique</p>
+            </div>
+            <p>
+                さらに文字を入力する前に、command+i/ctrl+i を入力することでテンプレートが出てきます。(mac/windows限定)
+            </p>
+            <h3>4.太字</h3>
+            <div class="fix">
+                <p>** bold ** このように文字を" ** "で囲むと、太字になります</p>
+                <p style="font-weight: bold; margin-left: 2rem">bold</p>
+            </div>
+            <h3>5.打ち消し線</h3>
+            <div class="fix">
+                <p>~~strikethrough~~ このように文字を" ~~ "で囲むと、打ち消し線になります</p>
+                <p style="text-decoration: line-through; margin-left: 2rem">strikethrough</p>
+            </div>
+            <h3>6.下線</h3>
+            <div class="fix">
+                <p>__underline__ このように文字を" __ "で囲むと、下線になります</p>
+                <p style="text-decoration: underline; margin-left: 2rem">underline</p>
+            </div>
+            <p>さらに文字を入力する前に、command+u/ctrl+u を入力することでテンプレートが出てきます。</p>
+            <h3>7.リスト</h3>
+            <div class="fix">
+                <p>* list このように文字の先頭に" * "もしくは" - "を入力すると、リストになります</p>
+                <ul style="margin-left: 2rem">
+                    <li>list1</li>
+                    <li>list2</li>
+                    <li>list3</li>
+                </ul>
+            </div>
+            <h3>8.コードブロック</h3>
+            <div class="fix">
+                <p>``` <br />code<br />``` このように文字を" ``` "で囲むと、インラインコードブロックになります</p>
+                <p class="codeblock">
+                    code
+                    <br />
+                    io::stdin() <br />.read_line(&mut input) <br />.expect("Failed to read line");
+                </p>
+            </div>
+            <p>また、コードブロックの中だとshift+enterではなく、enterを押すと改行されます</p>
+            <h3>8.5.シンタックスハイライト</h3>
+            <p>
+                コードブロックを入力する際、最初の```の後に、任意の言語を入力することで、シンタックスハイライトになります
+            </p>
+            <div class="fix">
+                <p>
+                    ```javascript <br />
+                    code <br />for ( let i = 10; i >= 0 ; i-- )<br />```
+                </p>
+                <div class="codeblock">
+                    code <br />
+                    <span class="pink">for</span> ( <span class="pink">let</span> i = <span class="blue">10</span>; i >=
+                    <span class="blue">0</span> ; i-- )
+                </div>
+            </div>
+            <h3>9.インラインコードブロック</h3>
+            <div class="fix">
+                <p>`code` このように文字の前に" ` "を入力すると、インラインコードになります</p>
+                <p class="inlinecode" style="margin-left: 2rem">code</p>
+            </div>
+            <h3>10.マスクされたリンク</h3>
+            <p>
+                [リンクのテキスト](URL)このように入力すると、マスクされたリンクになります。（ハイパーリンクにはなりません）
+            </p>
+            <div class="fix">
+                <p>[ニコニコ動画](https://youtube.com/)</p>
+                <a href="https://youtube.com/" style="margin-left: 2rem; margin-top: 15px">ニコニコ動画</a>
+            </div>
+            <p>注意：このリンクをクリックした際、警告が表示されるようになっています</p>
+            <h3>11.引用</h3>
+            <div class="fix">
+                <p>> 引用 このように" > "もしくは" >>> "を先頭に入力すると、引用になります</p>
+                <p class="quote" style="margin-left: 2rem; margin-top: 20px">引用</p>
+            </div>
+            <h3>12.絵文字</h3>
+            <div class="fix">
+                <p>:smile: このように絵文字を入力すると、絵文字になります</p>
+                <p style="margin-left: 2rem; margin-top: 20px; font-size: 50px">😄</p>
+            </div>
+            <p>さらに文字を入力する前に、command+e/ctrl+e を入力することで絵文字一覧が見えます（mac/windows限定）</p>
+            <p>小ネタ：\をコマンドの前に入力すると、コマンドを無視して送信することができます</p>
+        </div>
+        <script>
+            const items = document.querySelectorAll(".item");
+            items.forEach((item) => {
+                item.addEventListener("click", () => {
+                    item.classList.toggle("spoiler");
+                });
+            });
+        </script>
+    </body>
+</html>
