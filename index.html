@@ -98,6 +98,23 @@
                 background: var(--primary-color);
                 border-radius: 3px;
             }
+            h4 {
+                color: white;
+                font-size: 1.2rem;
+                margin: 1.5rem 0 1rem;
+                position: relative;
+                padding-left: 15px;
+            }
+            h4::before {
+                content: "";
+                position: absolute;
+                left: 0;
+                top: 0;
+                height: 100%;
+                width: 5px;
+                background: var(--primary-color);
+                border-radius: 3px;
+            }
 
             .fix {
                 display: flex;
@@ -230,7 +247,8 @@
                 <p>
                     || spoiler || このように文字を"||"で囲むとスポイラーになり、クリックすると表示されるようになります
                 </p>
-                <div class="item">spoiler</div>
+                <span style="align-self:center; color:lightblue; font-weight:bold; margin-right:1rem;">押してみて！→</span>
+                <div class="item spoiler">spoiler</div>
             </div>
             <p class="line-high">さらに文字の前に、/spoiler と入力してもスポイラーになります</p>
             <h3>2.見出し</h3>
@@ -239,10 +257,11 @@
                 <h1 style="margin-left: 2rem">h1</h1>
             </div>
             <div class="fix">
-                <p>## h2 ### h3 大きさは３段階あり、"#"を多くすればするほど小さくなります</p>
+                <p>## h2 ### h3 大きさは4段階あり、"#"を多くすればするほど小さくなります。-# -h で一番小さくなります</p>
                 <div>
                     <h2 style="margin-left: 2rem">h2</h2>
                     <h3 style="margin-left: 2rem">h3</h3>
+                    <h4 style="margin-left: 2rem">-h</h4>
                 </div>
             </div>
             <h3>3.斜体</h3>
